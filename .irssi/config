@@ -252,8 +252,7 @@ windows = {
       }
     );
   };
-  6 = { };
-  7 = {
+  6 = {
     items = (
       {
         type = "QUERY";
@@ -265,6 +264,6 @@ windows = {
   };
 };
 mainwindows = {
-  2 = { first_line = "7"; lines = "65"; };
-  1 = { first_line = "1"; lines = "6"; };
+  2 = { first_line = "11"; lines = "65"; };
+  1 = { first_line = "1"; lines = "10"; };
 };
