@@ -1,0 +1,14 @@
+# ~/.tmuxinator/cs-ruby.yml
+# you can make as many tabs as you wish...
+
+project_name: deltacloud
+project_root: ~/deltacloud
+pre: ~/bin/devcloudstart
+tabs:
+  - editor:
+      layout: 818d,237x55,0,0{148x55,0,0,0,88x55,149,0[88x26,149,0,1,88x14,149,27,2,88x13,149,42,6]}
+      panes:
+        - cd /Users/chip.childers/deltacloud/server/lib/deltacloud/drivers/cloudstack; vi cloudstack_driver.rb
+        - cd /Users/chip.childers/deltacloud/server/tests/drivers/cloudstack
+        - rvm use system; ~/bin/test-runner-deltacloud.sh
+        - ssh root@192.168.56.10

@@ -1,0 +1,12 @@
+# ~/.tmuxinator/mail.yml
+# you can make as many tabs as you wish...
+
+project_name: mail
+project_root: ~/
+tabs:
+  - mail:
+      layout: main-vertical
+      panes:
+        - mutt
+        - #empty, will just run plain bash
+        - irssi

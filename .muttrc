@@ -1,0 +1,216 @@
+source "gpg -d ~/.mutt/passwords.gpg |"
+set from = "chip.childers@sungard.com"
+set realname = "Chip Childers"
+set imap_user = "chip.childers@sungard.com"
+set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "+INBOX"
+set postponed ="+[Gmail]/Drafts"
+set header_cache =~/.mutt/cache/headers
+set message_cachedir =~/.mutt/cache/bodies
+set certificate_file =~/.mutt/certificates
+set edit_headers = yes
+set delete=yes
+set sleep_time=0
+#set pager_index_lines = 6
+
+set editor='vim + -c "set textwidth=72" -c "set wrap" -c "set nocp" -c "set spell spelllang=en"'
+
+bind editor <space> noop
+macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
+macro index ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"
+macro index gs "<change-folder>=[Gmail]/Sent Mail<enter>" "Go to Sent Mail"
+macro index gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
+
+macro index d "<delete-message>" "archive"
+macro pager d "<delete-message>" "archive"
+macro index x "<delete-message>" "mark for deletion"
+macro index r "<sync-mailbox>" "sync mailbox"
+
+set mbox="imaps://imap.gmail.com/[Gmail]/All Mail"
+
+bind pager <up> previous-line
+bind pager <down> next-line
+
+set move = no  #Stop asking to "move read messages to mbox"!
+set imap_keepalive = 900
+
+set sort="threads"
+set strict_threads="yes"
+set sort_browser="reverse-date"
+set sort_aux="last-date-received"
+
+mailboxes "=inbox"
+
+macro pager \cu |urlview\n
+
+set index_format="%?M?+& ?%2M %2e %Z %D %-20.20F (%4c) %s"
+
+bind index l collapse-thread
+bind index L collapse-all
+unset collapse_unread
+
+set timeout=30
+
+set query_command="goobook query '%s'"
+bind editor <Tab> complete-query
+macro index a "<pipe-message>goobook add<return>" "add the sender address to Google contacts"
+macro pager a "<pipe-message>goobook add<return>" "add the sender address to Google contacts"
+
+# You can show/hide headers (blacklisted and whitelisted). 
+# For example, if you only want to see a few headers:
+ignore *
+unignore Date: From: Organization: To: Cc: Reply-To: Subject: X-Label: Message-ID:
+ 
+# If you're doing that for readability, you probably also want to 
+# reorder them for skimmability:
+hdr_order Date: Subject: From: To: Cc:  Reply-To: Organization:
+
+alias Chip.Childers Chip Childers <Chip.Childers@sungard.com>
+
+set pgp_decode_command="gpg %?p?--passphrase-fd 0? --no-verbose --batch --output - %f"
+set pgp_verify_command="gpg --no-verbose --batch --output - --verify %s %f"
+set pgp_decrypt_command="gpg --passphrase-fd 0 --no-verbose --batch --output - %f"
+set pgp_sign_command="gpg --no-verbose --batch --output - --passphrase-fd 0 --armor --detach-sign --textmode %?a?-u %a? %f"
+set pgp_clearsign_command="gpg --no-verbose --batch --output - --passphrase-fd 0 --armor --textmode --clearsign %?a?-u %a? %f"
+set pgp_encrypt_only_command="pgpewrap gpg --batch --quiet --no-verbose --output - --encrypt --textmode --armor --always-trust --encrypt-to 0xC9C40C31 -- -r %r -- %f"
+set pgp_encrypt_sign_command="pgpewrap gpg --passphrase-fd 0 --batch --quiet --no-verbose --textmode --output - --encrypt --sign %?a?-u %a? --armor --always-trust --encrypt-to 0xCC56CEA8 -- -r %r -- %f"
+set pgp_import_command="gpg --no-verbose --import -v %f"
+set pgp_export_command="gpg --no-verbose --export --armor %r"
+set pgp_verify_key_command="gpg --no-verbose --batch --fingerprint --check-sigs %r"
+set pgp_list_pubring_command="gpg --no-verbose --batch --with-colons --list-keys %r" 
+set pgp_list_secring_command="gpg --no-verbose --batch --with-colons --list-secret-keys %r" 
+set pgp_autosign=no
+set pgp_sign_as=0xCC56CEA8
+set pgp_replyencrypt=yes
+set pgp_timeout=1800
+set pgp_good_sign="^gpg: Good signature from"
+
+# custom body highlights -----------------------------------------------
+# highlight my name and other personally relevant strings
+color body          color136        color234        "(chip|childers)"
+
+# for background in 16 color terminal, valid background colors include:
+# base03, bg, black, any of the non brights
+
+# basic colors ---------------------------------------------------------
+color normal        color241        color234        
+color error         color160        color234        
+color tilde         color235        color234        
+color message       color37         color234        
+color markers       color160        color254        
+color attachment    color254        color234        
+color search        color61         color234        
+color status        color241        color235        
+color indicator     color234        color136        
+color tree          color136        color234                                    # arrow in threads
+
+# basic monocolor screen
+mono  bold          bold
+mono  underline     underline
+mono  indicator     reverse
+mono  error         bold
+
+# index ----------------------------------------------------------------
+
+#color index         color160        color234        "~D(!~p|~p)"               # deleted
+color index         color235        color234        ~F                         # flagged
+#color index         color166        color234        ~=                         # duplicate messages
+#color index         color240        color234        "~A!~N!~T!~p!~Q!~F!~D!~P"  # the rest
+#color index         J_base          color234        "~A~N!~T!~p!~Q!~F!~D"      # the rest, new
+color index         color160        color234        "~A"                        # all messages
+color index         color166        color234        "~E"                        # expired messages
+color index         color33         color234        "~N"                        # new messages
+color index         color33         color234        "~O"                        # old messages
+color index         color61         color234        "~Q"                        # messages that have been replied to
+color index         color240        color234        "~R"                        # read messages
+color index         color33         color234        "~U"                        # unread messages
+color index         color33         color234        "~U~$"                      # unread, unreferenced messages
+color index         color241        color234        "~v"                        # messages part of a collapsed thread
+color index         color241        color234        "~P"                        # messages from me
+color index         color37         color234        "~p!~F"                     # messages to me
+color index         color37         color234        "~N~p!~F"                   # new messages to me
+color index         color37         color234        "~U~p!~F"                   # unread messages to me
+color index         color240        color234        "~R~p!~F"                   # messages to me
+color index         color160        color234        "~F"                        # flagged messages
+color index         color160        color234        "~F~p"                      # flagged messages to me
+color index         color160        color234        "~N~F"                      # new flagged messages
+color index         color160        color234        "~N~F~p"                    # new flagged messages to me
+color index         color160        color234        "~U~F~p"                    # new flagged messages to me
+color index         color235        color160        "~D"                        # deleted messages
+color index         color245        color234        "~v~(!~N)"                  # collapsed thread with no unread
+color index         color136        color234        "~v~(~N)"                   # collapsed thread with some unread
+color index         color64         color234        "~N~v~(~N)"                 # collapsed thread with unread parent
+# statusbg used to indicated flagged when foreground color shows other status
+# for collapsed thread
+color index         color160        color235        "~v~(~F)!~N"                # collapsed thread with flagged, no unread
+color index         color136        color235        "~v~(~F~N)"                 # collapsed thread with some unread & flagged
+color index         color64         color235        "~N~v~(~F~N)"               # collapsed thread with unread parent & flagged
+color index         color64         color235        "~N~v~(~F)"                 # collapsed thread with unread parent, no unread inside, but some flagged
+color index         color37         color235        "~v~(~p)"                   # collapsed thread with unread parent, no unread inside, some to me directly
+color index         color136        color160        "~v~(~D)"                   # thread with deleted (doesn't differentiate between all or partial)
+color index         color136        color234        "~(~N)"                    # messages in threads with some unread
+#color index         color64         color234        "~S"                       # superseded messages
+color index         color160        color234        "~T"                       # tagged messages
+#color index         color166        color160        "~="                       # duplicated messages
+
+# message headers ------------------------------------------------------
+
+#color header        color240        color234        "^"
+color hdrdefault    color240        color234        
+color header        color241        color234        "^(From)"
+color header        color241        color234        "^(Subject)"
+
+# body -----------------------------------------------------------------
+
+color quoted        color33         color234        
+color quoted1       color37         color234        
+color quoted2       color136        color234        
+color quoted3       color160        color234        
+color quoted4       color166        color234        
+
+color signature     color240        color234        
+color bold          color235        color234        
+color underline     color235        color234        
+color normal        color244        color234        
+#
+color body          color245        color234        "[;:][-o][)/(|]"    # emoticons
+color body          color245        color234        "[;:][)(|]"         # emoticons
+color body          color245        color234        "[*]?((N)?ACK|CU|LOL|SCNR|BRB|BTW|CWYL|\
+                                                     |FWIW|vbg|GD&R|HTH|HTHBE|IMHO|IMNSHO|\
+                                                     |IRL|RTFM|ROTFL|ROFL|YMMV)[*]?"
+color body          color245        color234        "[ ][*][^*]*[*][ ]?" # more emoticon?
+color body          color245        color234        "[ ]?[*][^*]*[*][ ]" # more emoticon?
+
+## pgp
+
+color body          color160        color234        "(BAD signature)"
+color body          color37         color234        "(Good signature)"
+color body          color234        color234        "^gpg: Good signature .*"
+color body          color241        color234        "^gpg: "
+color body          color241        color160        "^gpg: BAD signature from.*"
+mono  body          bold                            "^gpg: Good signature"
+mono  body          bold                            "^gpg: BAD signature from.*"
+
+# yes, an insance URL regex
+color body          color160        color234        "([a-z][a-z0-9+-]*://(((([a-z0-9_.!~*'();:&=+$,-]|%[0-9a-f][0-9a-f])*@)?((([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?|[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+)(:[0-9]+)?)|([a-z0-9_.!~*'()$,;:@&=+-]|%[0-9a-f][0-9a-f])+)(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?(#([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?|(www|ftp)\\.(([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?(:[0-9]+)?(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?(#([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?)[^].,:;!)? \t\r\n<>\"]"
+# and a heavy handed email regex
+#color body          J_magent        color234        "((@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\]),)*@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\]):)?[0-9a-z_.+%$-]+@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\])"
+
+# Various smilies and the like
+#color body          color230        color234        "<[Gg]>"                            # <g>
+#color body          color230        color234        "<[Bb][Gg]>"                        # <bg>
+color body          color136        color234        " [;:]-*[})>{(<|]"                  # :-) etc...
+# *bold*
+color body          color33         color234        "(^|[[:space:][:punct:]])\\*[^*]+\\*([[:space:][:punct:]]|$)"
+#mono  body          bold                            "(^|[[:space:][:punct:]])\\*[^*]+\\*([[:space:][:punct:]]|$)"
+# _underline_
+color body          color33         color234        "(^|[[:space:][:punct:]])_[^_]+_([[:space:][:punct:]]|$)"
+#mono  body          underline                       "(^|[[:space:][:punct:]])_[^_]+_([[:space:][:punct:]]|$)"
+# /italic/  (Sometimes gets directory names)
+#color body         color33         color234        "(^|[[:space:][:punct:]])/[^/]+/([[:space:][:punct:]]|$)"
+#mono body          underline                       "(^|[[:space:][:punct:]])/[^/]+/([[:space:][:punct:]]|$)"
+
+# Border lines.
+color body          color33         color234        "( *[-+=#*~_]){6,}"
+
+

@@ -1,0 +1,15 @@
+# ~/.tmuxinator/cs-dev.yml
+# you can make as many tabs as you wish...
+
+project_name: cs-dev
+project_root: ~/incubator-cloudstack
+#socket_name: foo # Not needed.  Remove to use default socket
+#rvm: 1.9.2@rails_project
+#pre: sudo /etc/rc.d/mysqld start
+tabs:
+  - editor:
+      layout: 45f6,272x84,0,0{166x84,0,0,0,105x84,167,0[105x41,167,0,2,105x42,167,42,3]}
+      panes:
+        - vim
+        - git pull
+        - top

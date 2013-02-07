@@ -1,0 +1,30 @@
+[user]
+	name = Chip Childers
+	email = chip.childers@gmail.com
+[core]
+	excludesfile = ~/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[reviewboard]
+	url = https://reviews.apache.org
+[credential]
+	helper = osxkeychain
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[reviewboard]
+  url = https://reviews.apache.org
+[merge]
+	tool = diffmerge
+[mergetool "diffmerge"]
+	cmd = diffmerge --merge --result=$MERGED $LOCAL $BASE $REMOTE
+	trustExitCode = true
+[diff]
+	tool = diffmerge
+[difftool "diffmerge"]
+	cmd = diffmerge $LOCAL $REMOTE

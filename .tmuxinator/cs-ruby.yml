@@ -1,0 +1,14 @@
+# ~/.tmuxinator/cs-ruby.yml
+# you can make as many tabs as you wish...
+
+project_name: cs-ruby
+project_root: ~/cloudstack_ruby_client
+pre: ~/bin/devcloudstart
+tabs:
+  - editor:
+      layout: 818d,237x55,0,0{148x55,0,0,0,88x55,149,0[88x26,149,0,1,88x14,149,27,2,88x13,149,42,6]}
+      panes:
+        - vi lib/cloudstack_ruby_client/base_client.rb
+        - vi test/test_client.rb
+        - ~/bin/test-runner.sh
+        - ssh root@192.168.56.10
