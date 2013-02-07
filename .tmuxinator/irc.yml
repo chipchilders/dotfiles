@@ -1,0 +1,11 @@
+# ~/.tmuxinator/irc.yml
+# you can make as many tabs as you wish...
+
+project_name: irc
+project_root: ~/
+tabs:
+  - irc:
+      layout: 6a58,249x62,0,0{223x62,0,0,7,25x62,224,0,8}
+      panes:
+        - irssi
+        - cat /Users/chip.childers/.irssi/nicklistfifo

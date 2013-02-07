@@ -13,15 +13,18 @@ servers = (
 chatnets = {
   freenode = {
     type = "IRC";
-    autosendcmd = "/^msg NickServ IDENTIFY password;wait 2000";
+    autosendcmd = "/^msg NickServ IDENTIFY password;wait 2000;/^nicklist fifo;";
   };
 };
 
 channels = (
   { name = "#cloudstack"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "#cloudstack-dev"; chatnet = "freenode"; autojoin = "yes"; }
-  { name = "#cloudstack-meeting"; chatnet = "freenode"; autojoin = "yes"; }
-  { name = "#deltacloud"; chatnet = "freenode"; autojoin = "yes"; }
+  { name = "#cloudstack-dev"; chatnet = "freenode"; autojoin = "yes"; },
+  {
+    name = "#cloudstack-meeting";
+    chatnet = "freenode";
+    autojoin = "yes";
+  }
 );
 
 aliases = {
@@ -204,6 +207,8 @@ settings = {
     growl_show_privmsg = "yes";
     growl_reveal_privmsg = "yes";
     growl_net_sticky_away = "yes";
+    nicklist_height = "60";
+    nicklist_width = "25";
   };
 };
 hilights = (
@@ -247,18 +252,19 @@ windows = {
       }
     );
   };
-  6 = {
+  6 = { };
+  7 = {
     items = (
       {
-        type = "CHANNEL";
+        type = "QUERY";
         chat_type = "IRC";
-        name = "#deltacloud";
+        name = "ke4qqq";
         tag = "freenode";
       }
     );
   };
 };
 mainwindows = {
-  4 = { first_line = "8"; lines = "48"; };
-  1 = { first_line = "1"; lines = "7"; };
+  2 = { first_line = "7"; lines = "65"; };
+  1 = { first_line = "1"; lines = "6"; };
 };
