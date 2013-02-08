@@ -11,7 +11,7 @@ set certificate_file =~/.mutt/certificates
 set edit_headers = yes
 set delete=yes
 set sleep_time=0
-#set pager_index_lines = 6
+set pager_index_lines = 6
 
 set editor='vim + -c "set textwidth=72" -c "set wrap" -c "set nocp" -c "set spell spelllang=en"'
 
@@ -41,7 +41,7 @@ set sort_aux="last-date-received"
 
 mailboxes "=inbox"
 
-macro pager \cu |urlview\n
+macro pager l |urlview\n
 
 set index_format="%?M?+& ?%2M %2e %Z %D %-20.20F (%4c) %s"
 

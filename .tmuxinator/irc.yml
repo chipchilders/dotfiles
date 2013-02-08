@@ -8,4 +8,4 @@ tabs:
       layout: 6a58,249x62,0,0{223x62,0,0,7,25x62,224,0,8}
       panes:
         - irssi
-        - cat /Users/chip.childers/.irssi/nicklistfifo
+        - kill `ps -ef | grep growl_irc.sh | grep -v grep | awk '{print $2}'`; ~/dotfiles/.irssi/growl_irc.sh; cat /Users/chip.childers/.irssi/nicklistfifo
