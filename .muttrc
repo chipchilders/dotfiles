@@ -26,6 +26,8 @@ macro pager d "<delete-message>" "archive"
 macro index x "<delete-message>" "mark for deletion"
 macro index r "<sync-mailbox>" "sync mailbox"
 
+macro index <esc>m "T~N<enter>;WNT~O<enter>;WO\CT~T<enter>" "mark all messages read"
+
 set mbox="imaps://imap.gmail.com/[Gmail]/All Mail"
 
 bind pager <up> previous-line
@@ -39,7 +41,26 @@ set strict_threads="yes"
 set sort_browser="reverse-date"
 set sort_aux="last-date-received"
 
-mailboxes "=inbox"
+# Alternate email addresses.
+alternates chipchilders@apache.org
+
+# Mailboxes to show in the sidebar.
+mailboxes +inbox \
+          +cloudstack-dev \
+          +cloudstack-commits \
+          +cloudstack-private \
+          +cloudstack-users \
+          +Deltacloud \
+          +legal-discuss \
+          +DMTF \
+          +CreadurDev \
+          +incubator \
+          +asf-infrastructure \
+
+# Sidebar Navigation ---------------------------------
+bind index <down>   sidebar-next
+bind index <up>     sidebar-prev
+bind index <right>  sidebar-open
 
 macro pager l |urlview\n
 
@@ -84,6 +105,16 @@ set pgp_sign_as=0xCC56CEA8
 set pgp_replyencrypt=yes
 set pgp_timeout=1800
 set pgp_good_sign="^gpg: Good signature from"
+
+# Sidebar Patch --------------------------------------
+set sidebar_delim   = '  │'
+set sidebar_visible = yes
+set sidebar_width   = 50
+color sidebar_new color221 color233
+
+# Status Bar -----------------------------------------
+set status_chars  = " *%A"
+set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
 
 # custom body highlights -----------------------------------------------
 # highlight my name and other personally relevant strings
