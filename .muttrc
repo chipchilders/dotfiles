@@ -80,6 +80,7 @@ set index_format="%?M?+& ?%2M %2e %Z %D %-20.20F (%4c) %s"
 bind index l collapse-thread
 bind index L collapse-all
 unset collapse_unread
+folder-hook . "push <ESC>V"
 
 set timeout=30
 

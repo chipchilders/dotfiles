@@ -3,7 +3,7 @@ servers = (
     address = "chat.freenode.net";
     chatnet = "freenode";
     port = "7000";
-    password = "Sungard01";
+    password = "";
     use_ssl = "yes";
     ssl_verify = "no";
     autoconnect = "yes";
@@ -202,6 +202,7 @@ settings = {
     # Solarized
     theme = "solarized-universal";
     hilight_color = "= %R";
+    autolog = "yes";
   };
   "perl/core/scripts" = {
     growl_show_privmsg = "yes";
