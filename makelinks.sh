@@ -14,3 +14,4 @@ ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
 ln -s ~/dotfiles/.tmuxinator ~/.tmuxinator
 ln -s ~/dotfiles/.bash_login ~/.bash_login
 ln -s ~/dotfiles/.offlineimaprc ~/.offlineimaprc
+ln -s ~/dotfiles/.goobookrc ~/.goobookrc
