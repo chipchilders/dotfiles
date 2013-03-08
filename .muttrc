@@ -53,9 +53,9 @@ alternates chipchilders@apache.org
 
 # Mailboxes to show in the sidebar.
 mailboxes +inbox \
-          +cloudstack-dev \
           +cloudstack-commits \
           +cloudstack-issues \
+          +cloudstack-dev \
           +cloudstack-private \
           +cloudstack-users \
           +cloudstack-marketing \
@@ -67,6 +67,8 @@ mailboxes +inbox \
           +asf-infrastructure \
           +fedora-cloud \
           +xen-api \
+          +hadoop-general \
+          +hadoop-common-dev \
 
 # Sidebar Navigation ---------------------------------
 bind index <down>   sidebar-next
