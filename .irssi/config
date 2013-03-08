@@ -24,7 +24,8 @@ channels = (
     name = "#cloudstack-meeting";
     chatnet = "freenode";
     autojoin = "yes";
-  }
+  },
+  { name = "#asfinfra"; chatnet = "freenode"; autojoin = "yes"; }
 );
 
 aliases = {

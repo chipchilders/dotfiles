@@ -61,3 +61,8 @@ export SVN_MERGE=~/scripts/svnmerge
 export MAVEN_OPTS="-Xmx512m"
 
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
+
+#Todo.txt customizations
+export TODOTXT_SORT_COMMAND='env LC_COLLATE=C sort -k 2,2 -k 1,1n'
+export TODOTXT_DEFAULT_ACTION=ls
+alias t='todotxt -d ~/.todo/config' 

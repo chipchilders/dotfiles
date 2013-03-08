@@ -75,7 +75,7 @@ bind index <right>  sidebar-open
 
 macro pager l |urlview\n
 
-set index_format="%?M?+& ?%2M %2e %Z %D %-20.20F (%4c) %s"
+set index_format="%?M?+& ?%2M %2e %Z %D %-20.20F (%4c) %y %s"
 
 bind index l collapse-thread
 bind index L collapse-all
@@ -156,10 +156,10 @@ mono  error         bold
 # index ----------------------------------------------------------------
 
 #color index         color160        color234        "~D(!~p|~p)"               # deleted
-color index         color235        color234        ~F                         # flagged
-#color index         color166        color234        ~=                         # duplicate messages
-#color index         color240        color234        "~A!~N!~T!~p!~Q!~F!~D!~P"  # the rest
-#color index         J_base          color234        "~A~N!~T!~p!~Q!~F!~D"      # the rest, new
+color index         color160        color234        ~F                         # flagged
+color index         color166        color234        ~=                         # duplicate messages
+color index         color240        color234        "~A!~N!~T!~p!~Q!~F!~D!~P"  # the rest
+color index         color33         color234        "~A~N!~T!~p!~Q!~F!~D"      # the rest, new
 color index         color160        color234        "~A"                        # all messages
 color index         color166        color234        "~E"                        # expired messages
 color index         color33         color234        "~N"                        # new messages
