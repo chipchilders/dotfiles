@@ -25,6 +25,11 @@ channels = (
     chatnet = "freenode";
     autojoin = "yes";
   },
+  { 
+    name = "#cloudstack-private";
+    chatnet = "freenode";
+    autojoin = "yes";
+  }
   { name = "#asfinfra"; chatnet = "freenode"; autojoin = "yes"; }
 );
 
@@ -257,9 +262,19 @@ windows = {
   6 = {
     items = (
       {
-        type = "QUERY";
+        type = "CHANNEL";
         chat_type = "IRC";
-        name = "ke4qqq";
+        name = "#cloudstack-private";
+        tag = "freenode";
+      }
+    );
+  };
+  7 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#asfinfra";
         tag = "freenode";
       }
     );

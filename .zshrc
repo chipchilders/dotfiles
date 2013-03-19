@@ -31,6 +31,7 @@ export MANPATH=/opt/local/share/man:$MANPATH
 
 [ -x "/Applications/MacVim.app/Contents/MacOS/Vim" ] && alias vim=/Applications/MacVim.app/Contents/MacOS/Vim
 
+alias buildserver='ssh sg-user@84.51.246.11'
 alias myvm="ssh -p 8022 localhost"
 alias found="ssh -p 8023 localhost"
 alias svndiff='~/svndiff.sh'
@@ -58,7 +59,7 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 export SVN_MERGE=~/scripts/svnmerge
 
-export MAVEN_OPTS="-Xmx512m"
+export MAVEN_OPTS="-XX:MaxPermSize=1024m -Xmx2048m -Xdebug -Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=n"
 
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
