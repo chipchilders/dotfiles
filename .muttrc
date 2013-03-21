@@ -63,6 +63,7 @@ mailboxes +inbox \
           +legal-discuss \
           +DMTF \
           +CreadurDev \
+          +asf-board \
           +incubator \
           +asf-infrastructure \
           +fedora-cloud \
@@ -99,8 +100,6 @@ unignore Date: From: Organization: To: Cc: Reply-To: Subject: X-Label: Message-I
 # If you're doing that for readability, you probably also want to 
 # reorder them for skimmability:
 hdr_order Date: Subject: From: To: Cc:  Reply-To: Organization:
-
-alias Chip.Childers Chip Childers <Chip.Childers@sungard.com>
 
 set pgp_decode_command="gpg %?p?--passphrase-fd 0? --no-verbose --batch --output - %f"
 set pgp_verify_command="gpg --no-verbose --batch --output - --verify %s %f"
@@ -258,4 +257,9 @@ color body          color33         color234        "(^|[[:space:][:punct:]])_[^
 # Border lines.
 color body          color33         color234        "( *[-+=#*~_]){6,}"
 
-
+alias Chip.Childers Chip Childers <Chip.Childers@sungard.com>
+alias csdev dev@cloudstack.apache.org
+alias csprivate private@cloudstack.apache.org
+alias csmarketing marketing@cloudstack.apache.org
+alias csannounce announce@cloudstack.apache.org
+alias csusers users@cloudstack.apache.org
