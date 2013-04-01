@@ -66,6 +66,7 @@ mailboxes +inbox \
           +asf-board \
           +incubator \
           +asf-infrastructure \
+          +community-dev \
           +fedora-cloud \
           +xen-api \
           +hadoop-general \

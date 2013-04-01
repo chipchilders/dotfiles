@@ -1,8 +1,8 @@
 servers = (
   {
-    address = "chat.freenode.net";
+    address = "84.51.246.11";
     chatnet = "freenode";
-    port = "7000";
+    port = "1026";
     password = "";
     use_ssl = "yes";
     ssl_verify = "no";
@@ -13,6 +13,7 @@ servers = (
 chatnets = {
   freenode = {
     type = "IRC";
+    username = "chipc";
     autosendcmd = "/^msg NickServ IDENTIFY password;wait 2000;/^nicklist fifo;";
   };
 };

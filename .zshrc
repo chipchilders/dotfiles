@@ -32,6 +32,7 @@ export MANPATH=/opt/local/share/man:$MANPATH
 [ -x "/Applications/MacVim.app/Contents/MacOS/Vim" ] && alias vim=/Applications/MacVim.app/Contents/MacOS/Vim
 
 alias buildserver='ssh sg-user@84.51.246.11'
+alias buildserver2='ssh -p 222 sg-user@84.51.246.11'
 alias myvm="ssh -p 8022 localhost"
 alias found="ssh -p 8023 localhost"
 alias svndiff='~/svndiff.sh'
@@ -44,6 +45,7 @@ alias gpg='nocorrect gpg'
 alias fle="perl -pi -e 's/\r/\n/g' "
 alias people='ssh chipchilders@people.apache.org'
 alias timeline='t stream search cloudstack \#cloudstack @cloudstack'
+alias killirc='tmux kill-session -t irc'
 
 export SVN_EDITOR=/usr/bin/vim
 export EDITOR=/usr/bin/vim
