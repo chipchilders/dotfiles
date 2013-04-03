@@ -59,6 +59,7 @@ mailboxes +inbox \
           +cloudstack-private \
           +cloudstack-users \
           +cloudstack-marketing \
+          +libcloud \
           +Deltacloud \
           +legal-discuss \
           +DMTF \
@@ -66,7 +67,9 @@ mailboxes +inbox \
           +asf-board \
           +incubator \
           +asf-infrastructure \
+          +builds \
           +community-dev \
+          +provisionr \
           +fedora-cloud \
           +xen-api \
           +hadoop-general \
