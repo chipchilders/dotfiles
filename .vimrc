@@ -44,5 +44,3 @@ autocmd FileType python set complete+=k~/.vim/syntax/python.vim isk+=.,(
 " NERDTree setup
 map <F3> :NERDTreeToggle<CR>
 
-source ~/.simplenoterc
-
