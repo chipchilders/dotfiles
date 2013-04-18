@@ -31,8 +31,9 @@ export MANPATH=/opt/local/share/man:$MANPATH
 
 [ -x "/Applications/MacVim.app/Contents/MacOS/Vim" ] && alias vim=/Applications/MacVim.app/Contents/MacOS/Vim
 
-alias buildserver='ssh sg-user@84.51.246.11'
-alias buildserver2='ssh -p 222 sg-user@84.51.246.11'
+alias buildserver='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no sg-user@84.51.246.11'
+alias buildserver2='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 222 sg-user@84.51.246.11'
+alias buildserver3='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 23 sg-user@84.51.246.11'
 alias myvm="ssh -p 8022 localhost"
 alias found="ssh -p 8023 localhost"
 alias svndiff='~/svndiff.sh'
