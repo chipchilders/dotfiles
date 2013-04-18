@@ -26,7 +26,7 @@ DISABLE_AUTO_TITLE="true"
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/opt/local/bin:/opt/local/sbin:/usr/kerberos/sbin:/usr/kerberos/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/local/git/bin:/Users/chip.childers/bin:/usr/local/mysql/bin/:~/bin/confluencetools:/usr/local/mysql/bin:/opt/local/libexec/perl5.12/sitebin/:/Users/chip.childers/.rvm/gems/ruby-1.9.2-p320/bin:~/bin
+export PATH=/opt/local/bin:/opt/local/sbin:/usr/kerberos/sbin:/usr/kerberos/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/local/git/bin:/Users/chip.childers/bin:/usr/local/mysql/bin/:~/bin/confluencetools:/usr/local/mysql/bin:/opt/local/libexec/perl5.12/sitebin/:/Users/chip.childers/.rvm/gems/ruby-1.9.2-p320/bin:~/bin:/home/sg-user/apache-maven-3.0.5/bin
 export MANPATH=/opt/local/share/man:$MANPATH
 
 [ -x "/Applications/MacVim.app/Contents/MacOS/Vim" ] && alias vim=/Applications/MacVim.app/Contents/MacOS/Vim
@@ -62,7 +62,7 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 export SVN_MERGE=~/scripts/svnmerge
 
-export MAVEN_OPTS="-XX:MaxPermSize=1024m -Xmx2048m -Xdebug -Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=n"
+export MAVEN_OPTS="-XX:MaxPermSize=1024m -Xmx2048m"
 
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
