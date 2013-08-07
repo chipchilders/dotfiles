@@ -31,9 +31,8 @@ export MANPATH=/opt/local/share/man:$MANPATH
 
 [ -x "/Applications/MacVim.app/Contents/MacOS/Vim" ] && alias vim=/Applications/MacVim.app/Contents/MacOS/Vim
 
-alias buildserver='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no sg-user@84.51.246.11'
+alias buildserver='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 23 sg-user@84.51.246.11'
 alias buildserver2='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 222 sg-user@84.51.246.11'
-alias buildserver3='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 23 sg-user@84.51.246.11'
 alias myvm="ssh -p 8022 localhost"
 alias found="ssh -p 8023 localhost"
 alias svndiff='~/svndiff.sh'
@@ -43,10 +42,12 @@ alias prod='~/connecttoprod'
 alias vi='vim'
 alias mutt='nocorrect mutt'
 alias gpg='nocorrect gpg'
+alias w3m='nocorrect w3m'
 alias fle="perl -pi -e 's/\r/\n/g' "
 alias people='ssh chipchilders@people.apache.org'
 alias timeline='t stream search cloudstack \#cloudstack @cloudstack'
 alias killirc='tmux kill-session -t irc'
+alias wget='wget --no-check-certificate'
 
 export SVN_EDITOR=/usr/bin/vim
 export EDITOR=/usr/bin/vim

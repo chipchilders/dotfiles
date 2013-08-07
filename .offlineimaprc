@@ -1,7 +1,7 @@
 [general]
 ui = TTY.TTYUI
 accounts = sungard
-pythonfile=~/.mutt/offlineimap.py
+pythonfile=~/bin/offlineimap.py
 fsync = False
 
 [Account sungard]
@@ -24,8 +24,7 @@ nametrans = lambda folder: {'drafts':  '[Gmail]/Drafts',
 maxconnections = 1
 type = Gmail
 remoteuser = chip.childers@sungard.com
-remotepasseval =  ''
-# get_keychain_pass(account="chip.childers@sungard.com", server="imap.gmail.com")
+remotepasseval =  get_keychain_pass(account="chip.childers@sungard.com", server="imap.gmail.com")
 realdelete = no
 nametrans = lambda folder: {'[Gmail]/Drafts':    'drafts',
                             '[Gmail]/Sent Mail': 'sent',

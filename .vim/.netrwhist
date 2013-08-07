@@ -1,10 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
-let g:netrw_dirhist_1='/Users/chip.childers/deltacloud/server/lib/deltacloud/drivers'
-let g:netrw_dirhist_2='/Users/chip.childers/Raskob/de/raskob/geometry'
-let g:netrw_dirhist_3='/Users/chip.childers/.oh-my-zsh/plugins'
-let g:netrw_dirhist_4='/Users/chip.childers/cloudstack_ruby_client/lib/cloudstack_ruby_client'
-let g:netrw_dirhist_5='/Users/chip.childers/deltacloud/server/tests/drivers/ec2'
-let g:netrw_dirhist_6='/Users/chip.childers/dotfiles/.vim/ftplugin'
-let g:netrw_dirhist_7='/Users/chip.childers/.offlineimap'
-let g:netrw_dirhist_8='/Users/chip.childers/dotfiles/.oh-my-zsh/custom'
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/chip.childers/cs-site/site/trunk/templates'
+let g:netrw_dirhist_2='/Users/chip.childers/testing'
+let g:netrw_dirhist_3='/Users/chip.childers/stratos/products/elb/2.0.5'
+let g:netrw_dirhist_4='/Users/chip.childers/.offlineimap'

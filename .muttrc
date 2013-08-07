@@ -13,6 +13,19 @@ set delete=yes
 set sleep_time=0
 set pager_index_lines = 6
 
+# sendmail config
+set from     = "chip.childers@sungard.com"
+set sendmail = "/opt/local/bin/msmtp"
+set envelope_from=yes
+set sendmail_wait = 0
+unset record
+
+macro generic "<esc>1" ":set from=chip.childers@sungard.com"
+macro generic "<esc>2" ":set from=chipchilders@apache.org"
+macro generic "<esc>3" ":set from=chip.childers@gmail.com"
+
+# other
+
 set editor='vim + -c "set textwidth=72" -c "set wrap" -c "set nocp" -c "set spell spelllang=en"'
 
 bind editor <space> noop
@@ -57,23 +70,37 @@ mailboxes +inbox \
           +cloudstack-issues \
           +cloudstack-dev \
           +cloudstack-private \
+          +cloudstack-security \
           +cloudstack-users \
           +cloudstack-marketing \
+          +cloudstack-collabplanning \
+          +stratos-dev \
+          +stratos-private \
+          +stratos-commits \
           +libcloud \
           +Deltacloud \
           +legal-discuss \
+          +trademarks \
           +DMTF \
           +CreadurDev \
           +asf-board \
+          +asf-members \
+          +asf-press \
           +incubator \
+          +incubator-private \
           +asf-infrastructure \
           +builds \
           +community-dev \
           +provisionr \
+          +curator \
+          +jclouds \
+          +opendaylight \
           +fedora-cloud \
           +xen-api \
           +hadoop-general \
           +hadoop-common-dev \
+          +ietf-announce \
+          +ietf-apps-discuss \
 
 # Sidebar Navigation ---------------------------------
 bind index <down>   sidebar-next
@@ -267,3 +294,7 @@ alias csprivate private@cloudstack.apache.org
 alias csmarketing marketing@cloudstack.apache.org
 alias csannounce announce@cloudstack.apache.org
 alias csusers users@cloudstack.apache.org
+alias nik nik.weidenbacher@sungard.com
+alias xopher christopher.litsinge@sungard.com
+alias adam adam.grochowski@sungard.com
+alias sdev Statos Dev <dev@stratos.incubator.apache.org>

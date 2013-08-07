@@ -3,10 +3,18 @@ servers = (
     address = "84.51.246.11";
     chatnet = "freenode";
     port = "1026";
-    password = "";
+    password = "Sungard01";
     use_ssl = "yes";
     ssl_verify = "no";
-    autoconnect = "yes";
+    autoconnect = "no";
+  },
+  {
+    address = "floss.sgns.net";
+    chatnet = "floss";
+    port = "6667";
+    use_ssl = "no";
+    ssl_verify = "no";
+    autoconnect = "no";
   }
 );
 
@@ -14,7 +22,12 @@ chatnets = {
   freenode = {
     type = "IRC";
     username = "chipc";
-    autosendcmd = "/^msg NickServ IDENTIFY password;wait 2000;/^nicklist fifo;";
+    autosendcmd = "wait 2000;/^nicklist fifo;";
+  };
+  floss = {
+    type = "IRC";
+    username = "chipc";
+    autosendcmd = "/^nicklist fifo";
   };
 };
 
@@ -26,12 +39,13 @@ channels = (
     chatnet = "freenode";
     autojoin = "yes";
   },
-  { 
+  {
     name = "#cloudstack-private";
     chatnet = "freenode";
     autojoin = "yes";
-  }
-  { name = "#asfinfra"; chatnet = "freenode"; autojoin = "yes"; }
+  },
+  { name = "#asfinfra"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#edison"; chatnet = "floss"; autojoin = "yes"; }
 );
 
 aliases = {
@@ -217,6 +231,8 @@ settings = {
     growl_net_sticky_away = "yes";
     nicklist_height = "60";
     nicklist_width = "25";
+    trackbar_string = "=";
+    trackbar_style = "%r";
   };
 };
 hilights = (
@@ -285,3 +301,4 @@ mainwindows = {
   2 = { first_line = "11"; lines = "65"; };
   1 = { first_line = "1"; lines = "10"; };
 };
+logs = { };
