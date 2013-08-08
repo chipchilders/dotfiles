@@ -2,7 +2,7 @@ source "gpg -d ~/.mutt/passwords.gpg |"
 set from = "chip.childers@sungard.com"
 set realname = "Chip Childers"
 set imap_user = "chip.childers@sungard.com"
-set folder = "imaps://imap.gmail.com:993"
+set folder = "~/.mail"
 set spoolfile = "+INBOX"
 set postponed ="+[Gmail]/Drafts"
 set header_cache =~/.mutt/cache/headers
@@ -12,6 +12,7 @@ set edit_headers = yes
 set delete=yes
 set sleep_time=0
 set pager_index_lines = 6
+set mailcap_path     = ~/.mutt/mailcap
 
 # sendmail config
 set from     = "chip.childers@sungard.com"
@@ -65,42 +66,43 @@ set sort_aux="last-date-received"
 alternates chipchilders@apache.org
 
 # Mailboxes to show in the sidebar.
-mailboxes +inbox \
-          +cloudstack-commits \
-          +cloudstack-issues \
-          +cloudstack-dev \
-          +cloudstack-private \
-          +cloudstack-security \
-          +cloudstack-users \
-          +cloudstack-marketing \
-          +cloudstack-collabplanning \
-          +stratos-dev \
-          +stratos-private \
-          +stratos-commits \
-          +libcloud \
-          +Deltacloud \
-          +legal-discuss \
-          +trademarks \
-          +DMTF \
-          +CreadurDev \
-          +asf-board \
-          +asf-members \
-          +asf-press \
-          +incubator \
-          +incubator-private \
-          +asf-infrastructure \
-          +builds \
-          +community-dev \
-          +provisionr \
-          +curator \
-          +jclouds \
-          +opendaylight \
-          +fedora-cloud \
-          +xen-api \
-          +hadoop-general \
-          +hadoop-common-dev \
-          +ietf-announce \
-          +ietf-apps-discuss \
+mailboxes +sungard.com/INBOX \
+          +sungard.com/cloudstack-commits \
+          +sungard.com/cloudstack-issues \
+          +sungard.com/cloudstack-dev \
+          +sungard.com/cloudstack-private \
+          +sungard.com/cloudstack-security \
+          +sungard.com/cloudstack-users \
+          +sungard.com/cloudstack-marketing \
+          +sungard.com/cloudstack-collabplanning \
+          +sungard.com/stratos-dev \
+          +sungard.com/stratos-private \
+          +sungard.com/stratos-commits \
+          +sungard.com/libcloud \
+          +sungard.com/Deltacloud \
+          +sungard.com/legal-discuss \
+          +sungard.com/trademarks \
+          +sungard.com/DMTF \
+          +sungard.com/CreadurDev \
+          +sungard.com/asf-board \
+          +sungard.com/asf-members \
+          +sungard.com/asf-press \
+          +sungard.com/incubator \
+          +sungard.com/incubator-private \
+          +sungard.com/asf-infrastructure \
+          +sungard.com/builds \
+          +sungard.com/community-dev \
+          +sungard.com/provisionr \
+          +sungard.com/curator \
+          +sungard.com/jclouds \
+          +sungard.com/opendaylight \
+          +sungard.com/fedora-cloud \
+          +sungard.com/xen-api \
+          +sungard.com/hadoop-general \
+          +sungard.com/hadoop-common-dev \
+          +sungard.com/ietf-announce \
+          +sungard.com/ietf-apps-discuss \
+          +sungard.com/archive \
 
 # Sidebar Navigation ---------------------------------
 bind index <down>   sidebar-next
