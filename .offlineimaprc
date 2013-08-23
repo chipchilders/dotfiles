@@ -10,6 +10,7 @@ localrepository = sungard-Local
 remoterepository = sungard-Remote
 status_backend = sqlite
 autorefresh = 5
+quick = 10
 
 [Repository sungard-Local]
 type = Maildir
