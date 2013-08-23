@@ -1,5 +1,6 @@
 [general]
-ui = TTY.TTYUI
+#ui = TTY.TTYUI
+ui = Curses.Blinkenlights
 accounts = sungard
 pythonfile=~/bin/offlineimap.py
 fsync = False
@@ -8,14 +9,12 @@ fsync = False
 localrepository = sungard-Local
 remoterepository = sungard-Remote
 status_backend = sqlite
-postsynchook = notmuch new
+autorefresh = 5
 
 [Repository sungard-Local]
 type = Maildir
 localfolders = ~/.mail/sungard.com
-nametrans = lambda folder: {'drafts':  '[Gmail]/Drafts',
-                            'sent':    '[Gmail]/Sent Mail',
-                            'flagged': '[Gmail]/Starred',
+nametrans = lambda folder: {'flagged': '[Gmail]/Starred',
                             'trash':   '[Gmail]/Trash',
                             'archive': '[Gmail]/All Mail',
                             }.get(folder, folder)
@@ -26,13 +25,12 @@ type = Gmail
 remoteuser = chip.childers@sungard.com
 remotepasseval =  get_keychain_pass(account="chip.childers@sungard.com", server="imap.gmail.com")
 realdelete = no
-nametrans = lambda folder: {'[Gmail]/Drafts':    'drafts',
-                            '[Gmail]/Sent Mail': 'sent',
-                            '[Gmail]/Starred':   'flagged',
+nametrans = lambda folder: {'[Gmail]/Starred':   'flagged',
                             '[Gmail]/Trash':     'trash',
                             '[Gmail]/All Mail':  'archive',
                             }.get(folder, folder)
 folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
                                              '[Gmail]/Important',
                                              '[Gmail]/Spam',
+                                             '[Gmail]/All Mail',
                                              ]

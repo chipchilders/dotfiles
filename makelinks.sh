@@ -34,3 +34,11 @@ rm -Rf ~/.goobookrc
 ln -s ~/dotfiles/.goobookrc ~/.goobookrc
 rm -Rf ~/.todo
 ln -s ~/dotfiles/.todo ~/.todo
+rm -Rf ~/.mutt/mailcap
+ln -s ~/dotfiles/mailcap ~/.mutt/mailcap
+rm -Rf ~/.mutt/view_attachment.sh
+ln -s ~/dotfiles/view_attachment.sh ~/.mutt/view_attachment.sh
+rm -Rf ~/bin/offlineimapintmux.sh
+ln -s ~/dotfiles/offlineimapintmux.sh ~/bin/offlineimapintmux.sh
+rm -Rf ~/bin/tmuxmail.sh
+ln -s ~/dotfiles/tmuxmail.sh ~/bin/tmuxmail.sh

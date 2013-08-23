@@ -1,10 +1,13 @@
 source "gpg -d ~/.mutt/passwords.gpg |"
+set mbox_type=mbox
 set from = "chip.childers@sungard.com"
 set realname = "Chip Childers"
 set imap_user = "chip.childers@sungard.com"
 set folder = "~/.mail"
-set spoolfile = "+INBOX"
-set postponed ="+[Gmail]/Drafts"
+set spoolfile = "+sungard.com/INBOX"
+set postponed ="+sungard.com/[Gmail].Drafts"
+set mbox ="+sungard.com/archive"
+set record ="+sent"
 set header_cache =~/.mutt/cache/headers
 set message_cachedir =~/.mutt/cache/bodies
 set certificate_file =~/.mutt/certificates
@@ -14,30 +17,38 @@ set sleep_time=0
 set pager_index_lines = 6
 set mailcap_path     = ~/.mutt/mailcap
 
+set imap_idle=yes
+
 # sendmail config
 set from     = "chip.childers@sungard.com"
 set sendmail = "/opt/local/bin/msmtp"
 set envelope_from=yes
 set sendmail_wait = 0
-unset record
+
+set wait_key=no
 
 macro generic "<esc>1" ":set from=chip.childers@sungard.com"
 macro generic "<esc>2" ":set from=chipchilders@apache.org"
 macro generic "<esc>3" ":set from=chip.childers@gmail.com"
+macro pager "<esc>1" ":set from=chip.childers@sungard.com"                                                                                                                                                                                                                    
+macro pager "<esc>2" ":set from=chipchilders@apache.org"                                                                                                                                                                                                                      
+macro pager "<esc>3" ":set from=chip.childers@gmail.com"   
+
+macro generic z "!~/bin/offlineimapintmux.sh &<enter>"
 
 # other
 
 set editor='vim + -c "set textwidth=72" -c "set wrap" -c "set nocp" -c "set spell spelllang=en"'
 
 bind editor <space> noop
-macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
-#macro index ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"
-macro index gs "<change-folder>=[Gmail]/Sent Mail<enter>" "Go to Sent Mail"
-macro index gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
-macro pager gi "<change-folder>=INBOX<enter>" "Go to inbox"
-macro pager ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"
-macro pager gs "<change-folder>=[Gmail]/Sent Mail<enter>" "Go to Sent Mail"
-macro pager gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
+macro index gi "<change-folder>=sungard.com/INBOX<enter>" "Go to inbox"
+macro index ga "<change-folder>=sungard.com/archive<enter>" "Go to all mail"
+macro index gs "<change-folder>=sent<enter>" "Go to Sent Mail"
+macro index gd "<change-folder>=sungard.com/[Gmail].Drafts<enter>" "Go to drafts"
+macro pager gi "<change-folder>=sungard.com/inbox<enter>" "Go to inbox"
+macro pager ga "<change-folder>=sungard.com/archive<enter>" "Go to all mail"
+macro pager gs "<change-folder>=sent<enter>" "Go to Sent Mail"
+macro pager gd "<change-folder>=sungard.com/[Gmail].Drafts<enter>" "Go to drafts"
 
 macro index d "<delete-message>" "archive"
 macro pager d "<delete-message>" "archive"
@@ -48,8 +59,6 @@ bind pager r reply
 bind pager a group-reply
 
 macro index <esc>m "T~N<enter>;WNT~O<enter>;WO\CT~T<enter>" "mark all messages read"
-
-set mbox="imaps://imap.gmail.com/[Gmail]/All Mail"
 
 bind pager <up> previous-line
 bind pager <down> next-line
@@ -67,6 +76,7 @@ alternates chipchilders@apache.org
 
 # Mailboxes to show in the sidebar.
 mailboxes +sungard.com/INBOX \
+          +sungard.com/flagged \
           +sungard.com/cloudstack-commits \
           +sungard.com/cloudstack-issues \
           +sungard.com/cloudstack-dev \
@@ -103,6 +113,9 @@ mailboxes +sungard.com/INBOX \
           +sungard.com/ietf-announce \
           +sungard.com/ietf-apps-discuss \
           +sungard.com/archive \
+          +sungard.com/[Gmail].Drafts \
+          +sungard.com/[Gmail].Sent\ Mail \
+          +sent \
 
 # Sidebar Navigation ---------------------------------
 bind index <down>   sidebar-next
@@ -118,7 +131,9 @@ bind index L collapse-all
 unset collapse_unread
 folder-hook . "push <ESC>V"
 
-set timeout=30
+set timeout=10
+set check_new=yes
+set mail_check=5
 
 set query_command="goobook query '%s'"
 bind editor <Tab> complete-query

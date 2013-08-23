@@ -5,8 +5,8 @@ project_name: mail
 project_root: ~/
 tabs:
   - mail:
-      layout: main-vertical
+      layout: a286,272x73,0,0[272x67,0,0,11,272x5,0,68{136x5,0,68,12,135x5,137,68,13}]
       panes:
         - mutt
-        - #empty, will just run plain bash
-        - irssi
+        - offlineimap
+        - 

@@ -47,6 +47,7 @@ alias fle="perl -pi -e 's/\r/\n/g' "
 alias people='ssh chipchilders@people.apache.org'
 alias timeline='t stream search cloudstack \#cloudstack @cloudstack'
 alias killirc='tmux kill-session -t irc'
+alias killmail='tmux kill-session -t mail'
 alias wget='wget --no-check-certificate'
 
 export SVN_EDITOR=/usr/bin/vim
