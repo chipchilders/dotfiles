@@ -1,0 +1,15 @@
+# ~/.tmuxinator/mongo.yml
+# you can make as many tabs as you wish...
+
+project_name: oper
+project_root: ~/cs-operator-dashboard
+#socket_name: foo # Not needed.  Remove to use default socket
+#rvm: 1.9.2@rails_project
+#pre: 
+tabs:
+  - editor:
+      layout: 45f6,272x84,0,0{166x84,0,0,0,105x84,167,0[105x41,167,0,2,105x42,167,42,3]}
+      panes:
+        - 
+        - mongod
+        - mongo
