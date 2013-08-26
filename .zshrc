@@ -49,6 +49,7 @@ alias timeline='t stream search cloudstack \#cloudstack @cloudstack'
 alias killirc='tmux kill-session -t irc'
 alias killmail='tmux kill-session -t mail'
 alias wget='wget --no-check-certificate'
+alias viv='vim -c "set textwidth=120" -c "set wrap" -c "set nocp" -c "set spell spelllang=en"'
 
 export SVN_EDITOR=/usr/bin/vim
 export EDITOR=/usr/bin/vim
