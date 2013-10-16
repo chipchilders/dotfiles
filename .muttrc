@@ -1,4 +1,3 @@
-source "gpg -d ~/.mutt/passwords.gpg |"
 set mbox_type=mbox
 set from = "chip.childers@gmail.com"
 set realname = "Chip Childers"
