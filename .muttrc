@@ -1,12 +1,12 @@
 source "gpg -d ~/.mutt/passwords.gpg |"
 set mbox_type=mbox
-set from = "chip.childers@sungard.com"
+set from = "chip.childers@gmail.com"
 set realname = "Chip Childers"
-set imap_user = "chip.childers@sungard.com"
+set imap_user = "chip.childers@gmail.com"
 set folder = "~/.mail"
-set spoolfile = "+sungard.com/INBOX"
-set postponed ="+sungard.com/[Gmail].Drafts"
-set mbox ="+sungard.com/archive"
+set spoolfile = "+gmail.com/INBOX"
+set postponed ="+gmail.com/[Gmail].Drafts"
+set mbox ="+gmail.com/archive"
 set record ="+sent"
 set header_cache =~/.mutt/cache/headers
 set message_cachedir =~/.mutt/cache/bodies
@@ -20,19 +20,17 @@ set mailcap_path     = ~/.mutt/mailcap
 set imap_idle=yes
 
 # sendmail config
-set from     = "chip.childers@sungard.com"
+set from     = "chip.childers@gmail.com"
 set sendmail = "/opt/local/bin/msmtp"
 set envelope_from=yes
 set sendmail_wait = 0
 
 set wait_key=no
 
-macro generic "<esc>1" ":set from=chip.childers@sungard.com"
+macro generic "<esc>1" ":set from=chip.childers@gmail.com"
 macro generic "<esc>2" ":set from=chipchilders@apache.org"
-macro generic "<esc>3" ":set from=chip.childers@gmail.com"
-macro pager "<esc>1" ":set from=chip.childers@sungard.com"                                                                                                                                                                                                                    
+macro pager "<esc>1" ":set from=chip.childers@gmail.com"                                                                                                                                                                                                                    
 macro pager "<esc>2" ":set from=chipchilders@apache.org"                                                                                                                                                                                                                      
-macro pager "<esc>3" ":set from=chip.childers@gmail.com"   
 
 macro generic z "!~/bin/offlineimapintmux.sh &<enter>"
 
@@ -41,14 +39,14 @@ macro generic z "!~/bin/offlineimapintmux.sh &<enter>"
 set editor='vim + -c "set textwidth=72" -c "set wrap" -c "set nocp" -c "set spell spelllang=en"'
 
 bind editor <space> noop
-macro index gi "<change-folder>=sungard.com/INBOX<enter>" "Go to inbox"
-macro index ga "<change-folder>=sungard.com/archive<enter>" "Go to all mail"
+macro index gi "<change-folder>=gmail.com/INBOX<enter>" "Go to inbox"
+macro index ga "<change-folder>=gmail.com/archive<enter>" "Go to all mail"
 macro index gs "<change-folder>=sent<enter>" "Go to Sent Mail"
-macro index gd "<change-folder>=sungard.com/[Gmail].Drafts<enter>" "Go to drafts"
-macro pager gi "<change-folder>=sungard.com/inbox<enter>" "Go to inbox"
-macro pager ga "<change-folder>=sungard.com/archive<enter>" "Go to all mail"
+macro index gd "<change-folder>=gmail.com/[Gmail].Drafts<enter>" "Go to drafts"
+macro pager gi "<change-folder>=gmail.com/inbox<enter>" "Go to inbox"
+macro pager ga "<change-folder>=gmail.com/archive<enter>" "Go to all mail"
 macro pager gs "<change-folder>=sent<enter>" "Go to Sent Mail"
-macro pager gd "<change-folder>=sungard.com/[Gmail].Drafts<enter>" "Go to drafts"
+macro pager gd "<change-folder>=gmail.com/[Gmail].Drafts<enter>" "Go to drafts"
 
 macro index d "<delete-message>" "archive"
 macro pager d "<delete-message>" "archive"
@@ -75,46 +73,46 @@ set sort_aux="last-date-received"
 alternates chipchilders@apache.org
 
 # Mailboxes to show in the sidebar.
-mailboxes +sungard.com/INBOX \
-          +sungard.com/flagged \
-          +sungard.com/cloudstack-commits \
-          +sungard.com/cloudstack-issues \
-          +sungard.com/cloudstack-dev \
-          +sungard.com/cloudstack-private \
-          +sungard.com/cloudstack-security \
-          +sungard.com/cloudstack-users \
-          +sungard.com/cloudstack-marketing \
-          +sungard.com/cloudstack-collabplanning \
-          +sungard.com/stratos-dev \
-          +sungard.com/stratos-private \
-          +sungard.com/stratos-commits \
-          +sungard.com/libcloud \
-          +sungard.com/Deltacloud \
-          +sungard.com/legal-discuss \
-          +sungard.com/trademarks \
-          +sungard.com/DMTF \
-          +sungard.com/CreadurDev \
-          +sungard.com/asf-board \
-          +sungard.com/asf-members \
-          +sungard.com/asf-press \
-          +sungard.com/incubator \
-          +sungard.com/incubator-private \
-          +sungard.com/asf-infrastructure \
-          +sungard.com/builds \
-          +sungard.com/community-dev \
-          +sungard.com/provisionr \
-          +sungard.com/curator \
-          +sungard.com/jclouds \
-          +sungard.com/opendaylight \
-          +sungard.com/fedora-cloud \
-          +sungard.com/xen-api \
-          +sungard.com/hadoop-general \
-          +sungard.com/hadoop-common-dev \
-          +sungard.com/ietf-announce \
-          +sungard.com/ietf-apps-discuss \
-          +sungard.com/archive \
-          +sungard.com/[Gmail].Drafts \
-          +sungard.com/[Gmail].Sent\ Mail \
+mailboxes +gmail.com/INBOX \
+          +gmail.com/flagged \
+          +gmail.com/cloudstack-commits \
+          +gmail.com/cloudstack-issues \
+          +gmail.com/cloudstack-dev \
+          +gmail.com/cloudstack-private \
+          +gmail.com/cloudstack-security \
+          +gmail.com/cloudstack-users \
+          +gmail.com/cloudstack-marketing \
+          +gmail.com/cloudstack-collabplanning \
+          +gmail.com/stratos-dev \
+          +gmail.com/stratos-private \
+          +gmail.com/stratos-commits \
+          +gmail.com/libcloud \
+          +gmail.com/Deltacloud \
+          +gmail.com/legal-discuss \
+          +gmail.com/trademarks \
+          +gmail.com/DMTF \
+          +gmail.com/CreadurDev \
+          +gmail.com/asf-board \
+          +gmail.com/asf-members \
+          +gmail.com/asf-press \
+          +gmail.com/incubator \
+          +gmail.com/incubator-private \
+          +gmail.com/asf-infrastructure \
+          +gmail.com/builds \
+          +gmail.com/community-dev \
+          +gmail.com/provisionr \
+          +gmail.com/curator \
+          +gmail.com/jclouds \
+          +gmail.com/opendaylight \
+          +gmail.com/fedora-cloud \
+          +gmail.com/xen-api \
+          +gmail.com/hadoop-general \
+          +gmail.com/hadoop-common-dev \
+          +gmail.com/ietf-announce \
+          +gmail.com/ietf-apps-discuss \
+          +gmail.com/archive \
+          +gmail.com/[Gmail].Drafts \
+          +gmail.com/[Gmail].Sent\ Mail \
           +sent \
 
 # Sidebar Navigation ---------------------------------
@@ -305,7 +303,7 @@ color body          color33         color234        "(^|[[:space:][:punct:]])_[^
 # Border lines.
 color body          color33         color234        "( *[-+=#*~_]){6,}"
 
-alias Chip.Childers Chip Childers <Chip.Childers@sungard.com>
+alias Chip.Childers Chip Childers <Chip.Childers@gmail.com>
 alias csdev dev@cloudstack.apache.org
 alias csprivate private@cloudstack.apache.org
 alias csmarketing marketing@cloudstack.apache.org

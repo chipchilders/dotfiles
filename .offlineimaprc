@@ -1,30 +1,30 @@
 [general]
 #ui = TTY.TTYUI
 ui = Curses.Blinkenlights
-accounts = sungard
+accounts = gmail
 pythonfile=~/bin/offlineimap.py
 fsync = False
 
-[Account sungard]
-localrepository = sungard-Local
-remoterepository = sungard-Remote
+[Account gmail]
+localrepository = gmail-Local
+remoterepository = gmail-Remote
 status_backend = sqlite
 autorefresh = 5
 quick = 10
 
-[Repository sungard-Local]
+[Repository gmail-Local]
 type = Maildir
-localfolders = ~/.mail/sungard.com
+localfolders = ~/.mail/gmail.com
 nametrans = lambda folder: {'flagged': '[Gmail]/Starred',
                             'trash':   '[Gmail]/Trash',
                             'archive': '[Gmail]/All Mail',
                             }.get(folder, folder)
 
-[Repository sungard-Remote]
+[Repository gmail-Remote]
 maxconnections = 1
 type = Gmail
-remoteuser = chip.childers@sungard.com
-remotepasseval =  get_keychain_pass(account="chip.childers@sungard.com", server="imap.gmail.com")
+remoteuser = chip.childers@gmail.com
+remotepasseval =  get_keychain_pass(account="chip.childers@gmail.com", server="imap.gmail.com")
 realdelete = no
 nametrans = lambda folder: {'[Gmail]/Starred':   'flagged',
                             '[Gmail]/Trash':     'trash',
