@@ -26,13 +26,14 @@ DISABLE_AUTO_TITLE="true"
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/opt/local/bin:/opt/local/sbin:/usr/kerberos/sbin:/usr/kerberos/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/local/git/bin:/Users/chip.childers/bin:/usr/local/mysql/bin/:~/bin/confluencetools:/usr/local/mysql/bin:/opt/local/libexec/perl5.12/sitebin/:/Users/chip.childers/.rvm/gems/ruby-1.9.2-p320/bin:~/bin:/home/sg-user/apache-maven-3.0.5/bin
+export PATH=/opt/local/bin:/opt/local/sbin:/usr/kerberos/sbin:/usr/kerberos/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/local/git/bin:/Users/chipchilders/bin:/usr/local/mysql/bin:~/bin/confluencetools:/usr/local/mysql/bin:/opt/local/libexec/perl5.12/sitebin:/Users/chipchilders/.rvm/gems/ruby-1.9.2-p320/bin:~/bin:/Users/chipchilders/apache-maven-3.0.5/bin:~/go/bin:$PATH
 export MANPATH=/opt/local/share/man:$MANPATH
+export GOPATH=~/go
+export PYTHONPATH=/usr/local/lib/python2.7/site-packages
 
 [ -x "/Applications/MacVim.app/Contents/MacOS/Vim" ] && alias vim=/Applications/MacVim.app/Contents/MacOS/Vim
 
-alias buildserver='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 23 sg-user@84.51.246.11'
-alias buildserver2='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 222 sg-user@84.51.246.11'
+alias buildserver='ssh 162.243.198.246'
 alias myvm="ssh -p 8022 localhost"
 alias found="ssh -p 8023 localhost"
 alias svndiff='~/svndiff.sh'
@@ -43,6 +44,8 @@ alias vi='vim'
 alias mutt='nocorrect mutt'
 alias gpg='nocorrect gpg'
 alias w3m='nocorrect w3m'
+alias rvm='nocorrect rvm'
+alias irssi='nocorrect irssi'
 alias fle="perl -pi -e 's/\r/\n/g' "
 alias people='ssh chipchilders@people.apache.org'
 alias timeline='t stream search cloudstack \#cloudstack @cloudstack'
@@ -50,10 +53,13 @@ alias killirc='tmux kill-session -t irc'
 alias killmail='tmux kill-session -t mail'
 alias wget='wget --no-check-certificate'
 alias viv='vim -c "set textwidth=120" -c "set wrap" -c "set nocp" -c "set spell spelllang=en"'
+alias ino='nocorrect ino'
 
 export SVN_EDITOR=/usr/bin/vim
 export EDITOR=/usr/bin/vim
 export SHELL=/bin/zsh
+
+export M2_HOME=/Users/chipchilders/apache-maven-3.0.5/
 
 export CATALINA_HOME=/usr/local/apache-tomcat-6.0.32
 
@@ -72,4 +78,6 @@ export MAVEN_OPTS="-XX:MaxPermSize=1024m -Xmx2048m"
 #Todo.txt customizations
 export TODOTXT_SORT_COMMAND='env LC_COLLATE=C sort -k 2,2 -k 1,1n'
 export TODOTXT_DEFAULT_ACTION=ls
-alias t='todotxt -d ~/.todo/config' 
+alias t='todotxt -d ~/.todo/config'
+
+export JAVA_HOME=`/usr/libexec/java_home -v 1.7`

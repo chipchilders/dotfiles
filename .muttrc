@@ -1,7 +1,6 @@
 set mbox_type=mbox
-set from = "chip.childers@gmail.com"
+set from = "chipchilders@apache.org"
 set realname = "Chip Childers"
-set imap_user = "chip.childers@gmail.com"
 set folder = "~/.mail"
 set spoolfile = "+gmail.com/INBOX"
 set postponed ="+gmail.com/[Gmail].Drafts"
@@ -19,8 +18,8 @@ set mailcap_path     = ~/.mutt/mailcap
 set imap_idle=yes
 
 # sendmail config
-set from     = "chip.childers@gmail.com"
-set sendmail = "/opt/local/bin/msmtp"
+set from     = "chipchilders@apache.org"
+set sendmail = "/usr/local/bin/msmtp"
 set envelope_from=yes
 set sendmail_wait = 0
 
@@ -28,9 +27,10 @@ set wait_key=no
 
 macro generic "<esc>1" ":set from=chip.childers@gmail.com"
 macro generic "<esc>2" ":set from=chipchilders@apache.org"
-macro pager "<esc>1" ":set from=chip.childers@gmail.com"                                                                                                                                                                                                                    
-macro pager "<esc>2" ":set from=chipchilders@apache.org"                                                                                                                                                                                                                      
-
+macro generic "<esc>3" ":set from=chip.childers@cumulogic.com"
+macro pager "<esc>1" ":set from=chip.childers@gmail.com"
+macro pager "<esc>2" ":set from=chipchilders@apache.org"
+macro pager "<esc>3" ":set from=chip.childers@cumulogic.com"
 macro generic z "!~/bin/offlineimapintmux.sh &<enter>"
 
 # other
@@ -69,39 +69,36 @@ set sort_browser="reverse-date"
 set sort_aux="last-date-received"
 
 # Alternate email addresses.
-alternates chipchilders@apache.org
+alternates chip.childers@gmail.com
 
 # Mailboxes to show in the sidebar.
 mailboxes +gmail.com/INBOX \
-          +gmail.com/flagged \
-          +gmail.com/cloudstack-commits \
-          +gmail.com/cloudstack-issues \
+          +gmail.com/asf-board \
+          +gmail.com/asf-infrastructure \
+          +gmail.com/asf-infrastructure-private \
+          +gmail.com/builds \
+          +gmail.com/community-dev \
+          +gmail.com/asf-members \
+          +gmail.com/asf-press \
+          +gmail.com/asf-fundraising \
+          +gmail.com/asf-legaldiscuss \
+          +gmail.com/asf-trademarks \
+          +gmail.com/asf-site-dev \
+          +gmail.com/asf-operations \
+          +gmail.com/brooklyn-dev \
+          +gmail.com/brooklyn-private \
           +gmail.com/cloudstack-dev \
           +gmail.com/cloudstack-private \
           +gmail.com/cloudstack-security \
           +gmail.com/cloudstack-users \
           +gmail.com/cloudstack-marketing \
-          +gmail.com/cloudstack-collabplanning \
-          +gmail.com/ccc-amsterdam \
-          +gmail.com/stratos-dev \
-          +gmail.com/stratos-private \
-          +gmail.com/stratos-commits \
-          +gmail.com/libcloud \
-          +gmail.com/Deltacloud \
-          +gmail.com/legal-discuss \
-          +gmail.com/trademarks \
-          +gmail.com/DMTF \
-          +gmail.com/CreadurDev \
-          +gmail.com/asf-board \
-          +gmail.com/asf-members \
-          +gmail.com/asf-press \
           +gmail.com/incubator \
           +gmail.com/incubator-private \
-          +gmail.com/asf-infrastructure \
-          +gmail.com/builds \
-          +gmail.com/community-dev \
-          +gmail.com/provisionr \
-          +gmail.com/curator \
+          +gmail.com/stratos-dev \
+          +gmail.com/stratos-private \
+          +gmail.com/libcloud \
+          +gmail.com/Deltacloud \
+          +gmail.com/CreadurDev \
           +gmail.com/jclouds \
           +gmail.com/opendaylight \
           +gmail.com/fedora-cloud \
@@ -110,10 +107,15 @@ mailboxes +gmail.com/INBOX \
           +gmail.com/hadoop-common-dev \
           +gmail.com/ietf-announce \
           +gmail.com/ietf-apps-discuss \
+          +gmail.com/OpenStackDev \
+          +gmail.com/cloudstack-commits \
+          +gmail.com/cloudstack-issues \
+          +gmail.com/stratos-commits \
           +gmail.com/archive \
           +gmail.com/[Gmail].Drafts \
           +gmail.com/[Gmail].Sent\ Mail \
           +sent \
+          +cumulogic.com/INBOX \
 
 # Sidebar Navigation ---------------------------------
 bind index <down>   sidebar-next

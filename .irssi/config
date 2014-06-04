@@ -1,20 +1,12 @@
 servers = (
   {
-    address = "84.51.246.11";
+    address = "162.243.198.246";
     chatnet = "freenode";
-    port = "1026";
-    password = "foo";
+    port = "1025";
+    password = "";
     use_ssl = "yes";
     ssl_verify = "no";
-    autoconnect = "no";
-  },
-  {
-    address = "floss.sgns.net";
-    chatnet = "floss";
-    port = "6667";
-    use_ssl = "no";
-    ssl_verify = "no";
-    autoconnect = "no";
+    autoconnect = "yes";
   }
 );
 
@@ -23,11 +15,6 @@ chatnets = {
     type = "IRC";
     username = "chipc";
     autosendcmd = "wait 2000;/^nicklist fifo;";
-  };
-  floss = {
-    type = "IRC";
-    username = "chipc";
-    autosendcmd = "/^nicklist fifo";
   };
 };
 

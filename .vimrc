@@ -44,3 +44,8 @@ autocmd FileType python set complete+=k~/.vim/syntax/python.vim isk+=.,(
 " NERDTree setup
 map <F3> :NERDTreeToggle<CR>
 
+augroup RubyTests
+    au!
+    autocmd BufRead,BufNewFile *_test.rb,test_*.rb,*_spec.rb,spec_*.rb
+        \ :nmap gt :<C-U>!ruby %<CR>
+augroup END

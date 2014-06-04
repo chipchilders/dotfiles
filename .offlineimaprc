@@ -5,6 +5,13 @@ accounts = gmail
 pythonfile=~/bin/offlineimap.py
 fsync = False
 
+[Account cumulogic]
+localrepository = cumulogic-Local
+remoterepository = cumulogic-Remote
+status_backend = sqlite
+autorefresh = 5
+quick = 10
+
 [Account gmail]
 localrepository = gmail-Local
 remoterepository = gmail-Remote
@@ -35,3 +42,15 @@ folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
                                              '[Gmail]/Spam',
                                              '[Gmail]/All Mail',
                                              ]
+
+[Repository cumulogic-Local]
+type = Maildir
+localfolders = ~/.mail/cumulogic.com
+
+[Repository cumulogic-Remote]
+maxconnections = 1
+type = IMAP
+remotehost = outlook.office365.com
+remoteuser = chip.childers@cumulogic.com
+remotepasseval =  get_keychain_pass(account="chip.childers@cumulogic.com", server="outlook.office365.com")
+realdelete = no
