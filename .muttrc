@@ -3,7 +3,7 @@ set from = "chipchilders@apache.org"
 set realname = "Chip Childers"
 set folder = "~/.mail"
 set spoolfile = "+gmail.com/INBOX"
-set postponed ="+gmail.com/[Gmail].Drafts"
+set postponed ="+drafts"
 set mbox ="+gmail.com/archive"
 set record ="+sent"
 set header_cache =~/.mutt/cache/headers
@@ -25,12 +25,15 @@ set sendmail_wait = 0
 
 set wait_key=no
 
-macro generic "<esc>1" ":set from=chip.childers@gmail.com"
+folder-hook '.*' 'set from=chipchilders@apache.org'
+folder-hook 'tlf\.org.*' 'set from=cchilders@linuxfoundation.org'
+
+macro generic "<esc>1" ":set from=cchilders@linuxfoundation.org"
 macro generic "<esc>2" ":set from=chipchilders@apache.org"
-macro generic "<esc>3" ":set from=chip.childers@cumulogic.com"
-macro pager "<esc>1" ":set from=chip.childers@gmail.com"
+macro generic "<esc>3" ":set from=chip.childers@gmail.com"
+macro pager "<esc>1" ":set from=cchilders@linuxfoundation.org"
 macro pager "<esc>2" ":set from=chipchilders@apache.org"
-macro pager "<esc>3" ":set from=chip.childers@cumulogic.com"
+macro pager "<esc>3" ":set from=chip.childers@gmail.com"
 macro generic z "!~/bin/offlineimapintmux.sh &<enter>"
 
 # other
@@ -73,6 +76,10 @@ alternates chip.childers@gmail.com
 
 # Mailboxes to show in the sidebar.
 mailboxes +gmail.com/INBOX \
+          +tlf.org/INBOX\
+          +tlf.org/bosh-dev \
+          +tlf.org/bosh-users \
+          +tlf.org/vcap-dev \
           +gmail.com/asf-board \
           +gmail.com/asf-infrastructure \
           +gmail.com/asf-infrastructure-private \
@@ -92,30 +99,13 @@ mailboxes +gmail.com/INBOX \
           +gmail.com/cloudstack-security \
           +gmail.com/cloudstack-users \
           +gmail.com/cloudstack-marketing \
+          +gmail.com/cloudstack-press \
           +gmail.com/incubator \
           +gmail.com/incubator-private \
-          +gmail.com/stratos-dev \
-          +gmail.com/stratos-private \
-          +gmail.com/libcloud \
-          +gmail.com/Deltacloud \
-          +gmail.com/CreadurDev \
-          +gmail.com/jclouds \
-          +gmail.com/opendaylight \
-          +gmail.com/fedora-cloud \
-          +gmail.com/xen-api \
-          +gmail.com/hadoop-general \
-          +gmail.com/hadoop-common-dev \
-          +gmail.com/ietf-announce \
-          +gmail.com/ietf-apps-discuss \
           +gmail.com/OpenStackDev \
-          +gmail.com/cloudstack-commits \
-          +gmail.com/cloudstack-issues \
-          +gmail.com/stratos-commits \
           +gmail.com/archive \
-          +gmail.com/[Gmail].Drafts \
-          +gmail.com/[Gmail].Sent\ Mail \
           +sent \
-          +cumulogic.com/INBOX \
+          +drafts \
 
 # Sidebar Navigation ---------------------------------
 bind index <down>   sidebar-next
@@ -306,12 +296,3 @@ color body          color33         color234        "(^|[[:space:][:punct:]])_[^
 color body          color33         color234        "( *[-+=#*~_]){6,}"
 
 alias Chip.Childers Chip Childers <Chip.Childers@gmail.com>
-alias csdev dev@cloudstack.apache.org
-alias csprivate private@cloudstack.apache.org
-alias csmarketing marketing@cloudstack.apache.org
-alias csannounce announce@cloudstack.apache.org
-alias csusers users@cloudstack.apache.org
-alias nik nik.weidenbacher@sungard.com
-alias xopher christopher.litsinge@sungard.com
-alias adam adam.grochowski@sungard.com
-alias sdev Statos Dev <dev@stratos.incubator.apache.org>

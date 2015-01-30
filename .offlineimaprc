@@ -5,9 +5,9 @@ accounts = gmail
 pythonfile=~/bin/offlineimap.py
 fsync = False
 
-[Account cumulogic]
-localrepository = cumulogic-Local
-remoterepository = cumulogic-Remote
+[Account tlf]
+localrepository = tlf-Local
+remoterepository = tlf-Remote
 status_backend = sqlite
 autorefresh = 5
 quick = 10
@@ -43,14 +43,26 @@ folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
                                              '[Gmail]/All Mail',
                                              ]
 
-[Repository cumulogic-Local]
+[Repository tlf-Local]
 type = Maildir
-localfolders = ~/.mail/cumulogic.com
+localfolders = ~/.mail/tlf.org
+nametrans = lambda folder: {'flagged': '[Gmail]/Starred',
+                            'trash':   '[Gmail]/Trash',
+                            'archive': '[Gmail]/All Mail',
+                            }.get(folder, folder)
 
-[Repository cumulogic-Remote]
+[Repository tlf-Remote]
 maxconnections = 1
-type = IMAP
-remotehost = outlook.office365.com
-remoteuser = chip.childers@cumulogic.com
-remotepasseval =  get_keychain_pass(account="chip.childers@cumulogic.com", server="outlook.office365.com")
+type = Gmail
+remoteuser = cchilders@linuxfoundation.org
+remotepasseval =  get_keychain_pass(account="cchilders@linuxfoundation.org", server="imap.gmail.com")
 realdelete = no
+nametrans = lambda folder: {'[Gmail]/Starred':   'flagged',
+                            '[Gmail]/Trash':     'trash',
+                            '[Gmail]/All Mail':  'archive',
+                            }.get(folder, folder)
+folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
+                                             '[Gmail]/Important',
+                                             '[Gmail]/Spam',
+                                             '[Gmail]/All Mail',
+                                             ]
